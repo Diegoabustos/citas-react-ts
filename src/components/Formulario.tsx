@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
+import {Paciente} from '../types'
 
-const Formulario = () => {
+
+interface Props {
+  pacientes: Array<Paciente>
+  setPacientes:  React.Dispatch<React.SetStateAction<Paciente[]>>
+}
+
+
+const Formulario = ({pacientes, setPacientes}: Props ) => {
   const [nombre, setNombre] = useState<string>("");
   const [propietario, setPropietario] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -19,6 +27,23 @@ const Formulario = () => {
       return;
     };
     setError(false);
+
+    // Objeto de Paciente
+    const objetoPaciente = {
+      nombre, 
+      propietario, 
+      email, 
+      fecha, 
+      sintomas
+    }
+    setPacientes([...pacientes, objetoPaciente]);
+
+    // Reiniciar el form
+    setNombre('')
+    setPropietario('')
+    setEmail('')
+    setFecha('')
+    setSintomas('')
   };
 
   return (
