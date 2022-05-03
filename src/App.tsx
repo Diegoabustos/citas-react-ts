@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Formulario from "./components/Formulario";
 import ListadoPacientes from "./components/ListadoPacientes";
-import {Paciente} from './types'
+import {Paciente} from './types';
 
 interface AppState{
   pacientes: Array<Paciente>;
