@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from "react";
 import {Paciente} from '../types'
+import Error from './Error'
 
 
 interface Props {
@@ -61,7 +62,7 @@ const Formulario = ({pacientes, setPacientes}: Props ) => {
         className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
         onSubmit={handleSubmit}
       >
-        {error && <div className="bg-red-800  text-white text-center p-3 uppercase font-bold mb-3 rounded"><p>Todos los campos son obligatorios</p></div>}
+        {error && <Error mensaje="Todos los campos son obligatorios" /> }
         <div className="mb-5">
           <label
             className="block text-gray-700 uppercase font-bold"
