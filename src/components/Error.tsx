@@ -1,17 +1,16 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 interface ErrorProps {
-    mensaje: string;
+    children: ReactNode;
 }
 
-const Error = ({mensaje}: ErrorProps) => {
+const Error: React.FunctionComponent<ErrorProps> = ({children}) => {
   return (
     <div 
         className="bg-red-800  text-white text-center p-3 uppercase font-bold mb-3 rounded">
-            <p>{mensaje}</p>
+            {children}
     </div>
-
   )
-}
+};
 
-export default Error
+export default Error;
