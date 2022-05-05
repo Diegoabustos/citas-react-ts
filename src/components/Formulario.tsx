@@ -50,7 +50,7 @@ const Formulario = ({pacientes, setPacientes}: Props ) => {
 
   return (
     <div className="md:w-1/2 lg:w-2/5">
-      <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
+      <h2 className="font-black text-3xl text-center" data-testid="titulo" >Seguimiento Pacientes</h2>
 
       <p className="text-lg mt-5 text-center mb-10">
         Añade Pacientes y {""}
@@ -62,7 +62,7 @@ const Formulario = ({pacientes, setPacientes}: Props ) => {
         className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
         onSubmit={handleSubmit}
       >
-        {error && <Error><p>Todos los campos son obligatorios</p></Error> }
+        {error && <Error><p data-testid="alerta">Todos los campos son obligatorios</p></Error> }
         <div className="mb-5">
           <label
             className="block text-gray-700 uppercase font-bold"
@@ -71,6 +71,7 @@ const Formulario = ({pacientes, setPacientes}: Props ) => {
             Nombre Mascota
           </label>
           <input
+            data-testid="nombre"
             id="mascota"
             type="text"
             placeholder="Nombre de la Mascota"
@@ -89,6 +90,7 @@ const Formulario = ({pacientes, setPacientes}: Props ) => {
             Nombre Propietario
           </label>
           <input
+            data-testid="propietario"
             id="propietario"
             type="text"
             placeholder="Nombre del Propietario"
@@ -107,6 +109,7 @@ const Formulario = ({pacientes, setPacientes}: Props ) => {
             Email
           </label>
           <input
+            data-testid="email"
             id="email"
             type="email"
             placeholder="Email Contacto Propietario"
@@ -125,6 +128,7 @@ const Formulario = ({pacientes, setPacientes}: Props ) => {
             Alta
           </label>
           <input
+            data-testid="alta"
             id="alta"
             type="date"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
@@ -142,6 +146,7 @@ const Formulario = ({pacientes, setPacientes}: Props ) => {
             Síntomas
           </label>
           <textarea
+            data-testid="sintomas"
             name=""
             id="sintomas"
             placeholder="Describe los síntomas"
@@ -152,6 +157,7 @@ const Formulario = ({pacientes, setPacientes}: Props ) => {
           ></textarea>
         </div>
         <input
+          data-testid="btn-submit"
           type="submit"
           className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-COLORS"
           value="Agregar Paciente"
