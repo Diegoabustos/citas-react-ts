@@ -1,4 +1,4 @@
-const Paciente = () => {
+const PacienteCita = ({paciente}: any) => {
   return (
     <div className="mx-5 my-10 bg-white shadow-md px-5 py-10 rounded-xl">
       <p className="font-bold mb-3 text-gray-700 uppercase">
@@ -30,4 +30,4 @@ const Paciente = () => {
   );
 };
 
-export default Paciente;
+export default PacienteCita;
