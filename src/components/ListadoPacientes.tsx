@@ -1,5 +1,5 @@
 import { Paciente } from "../types";
-import PacienteCita from "./Paciente";
+import PacienteCita from "./PacienteCita";
 
 interface Props {
   pacientes: Array<Paciente>;
@@ -15,8 +15,8 @@ const ListadoPacientes = ({ pacientes }: Props): JSX.Element => {
         <span className="text-indigo-600 font-bold">Pacientes y Citas</span>
       </p>
 
-      {pacientes.map((paciente) => (
-        <PacienteCita paciente={paciente} />
+      {pacientes.map(paciente => (
+        <PacienteCita key={paciente.id} paciente={paciente} />
       ))}
     </div>
   );
