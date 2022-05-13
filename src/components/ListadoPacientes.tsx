@@ -3,10 +3,10 @@ import PacienteCita from "./PacienteCita";
 
 interface Props {
   pacientes: Array<Paciente>;
-  setPacientes?: React.Dispatch<React.SetStateAction<Paciente[]>>;
+  setPaciente:  React.Dispatch<React.SetStateAction<{}>>
 }
 
-const ListadoPacientes = ({ pacientes }: Props): JSX.Element => {
+const ListadoPacientes = ({ pacientes, setPaciente }: Props): JSX.Element => {
   return (
     <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll">
       {pacientes && pacientes.length ? (
@@ -20,7 +20,7 @@ const ListadoPacientes = ({ pacientes }: Props): JSX.Element => {
           </p>
 
           {pacientes.map((paciente) => (
-            <PacienteCita key={paciente.id} paciente={paciente} />
+            <PacienteCita key={paciente.id} paciente={paciente} setPaciente={setPaciente} />
           ))}
         </>
       ) : (
