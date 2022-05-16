@@ -7,7 +7,14 @@ import Error from './Error'
 interface Props {
   pacientes: Array<Paciente>
   setPacientes:  React.Dispatch<React.SetStateAction<Paciente[]>>
-  paciente: {};
+  paciente: {
+    nombre: string;
+    propietario: string;
+    email: string;
+    fecha: string;
+    sintomas: string;
+    id: string;
+  };
 }
 
 
@@ -21,7 +28,13 @@ const Formulario = ({pacientes, setPacientes, paciente}: Props ) => {
   const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log(paciente)
+    if(Object.keys(paciente).length > 0) {
+      setNombre(paciente.nombre)
+      setPropietario(paciente.propietario)
+      setEmail(paciente.email)
+      setFecha(paciente.fecha)
+      setSintomas(paciente.sintomas)
+    }
   }, [paciente])
 
   const generarId = () => {
@@ -173,7 +186,7 @@ const Formulario = ({pacientes, setPacientes, paciente}: Props ) => {
           data-testid="btn-submit"
           type="submit"
           className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-COLORS"
-          value="Agregar Paciente"
+          value={paciente.id ? 'Editar Paciente' : 'Agregar Paciente'}
         />
       </form>
     </div>
