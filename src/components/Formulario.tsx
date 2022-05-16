@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {Paciente} from '../types'
 import Error from './Error'
 
@@ -7,10 +7,11 @@ import Error from './Error'
 interface Props {
   pacientes: Array<Paciente>
   setPacientes:  React.Dispatch<React.SetStateAction<Paciente[]>>
+  paciente: {};
 }
 
 
-const Formulario = ({pacientes, setPacientes}: Props ) => {
+const Formulario = ({pacientes, setPacientes, paciente}: Props ) => {
   const [nombre, setNombre] = useState<string>("");
   const [propietario, setPropietario] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -18,6 +19,10 @@ const Formulario = ({pacientes, setPacientes}: Props ) => {
   const [sintomas, setSintomas] = useState<string>("");
 
   const [error, setError] = useState<boolean>(false);
+
+  useEffect(() => {
+    console.log(paciente)
+  }, [paciente])
 
   const generarId = () => {
     const random = Math.random().toString(36).substr(2);
